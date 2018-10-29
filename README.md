@@ -39,7 +39,7 @@ Edit the `composer.json` file and update the version of `drupal/core` and `webfl
 }
 ```
 
-Update the packages, require the `amazeelabs/silverback` composer package and initialise it.
+Update the packages, require the `amazeelabs/silverback` composer package and initialise it:
 
 ```bash
 composer update
