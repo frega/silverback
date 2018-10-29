@@ -31,5 +31,16 @@
         "psr-4": {
             "AmazeeLabs\\Silverback\\": "src/AmazeeLabs/Silverback"
         }
+    },
+    "extra": {
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "Add an API for converting entity type schemas to (non-)revisionable/(non-)translatable, with or without data (#2984782 - 27)": "https://www.drupal.org/files/issues/2018-10-28/2984782-27.patch"
+            }
+        },
+        "enable-patching": true
     }
 }
