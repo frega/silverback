@@ -26,12 +26,26 @@ Given you already created a composer based Drupal project like this:
 composer create-project drupal-composer/drupal-project:8.x-dev my-project --no-interaction
 ```
 
-You just have to require the `amazeelabs/silverback` composer package and initialise it:
-
+Go into the project folder:
 ```bash
 cd my-project
-composer remove drupal/core
-composer require amazeelabs/silverback
+```
+
+Edit the `composer.json` file and update the version of `drupal/core` and `webflo/drupal-core-require-dev` to `8.7.x-dev`. Also, make sure that you have the the `enable-patching` flag set to `true`:
+
+```bash
+"extra": {
+  "enable-patching": true
+}
+```
+
+Update the packages, require the `amazeelabs/silverback` composer package and initialise it.
+
+```bash
+composer update
+composer remove drupal/core cweagans/composer-patches
+composer require amazeelabs/silverback:8.7.x-dev
+composer install
 ./vendor/bin/silverback init
 yarn
 ```
