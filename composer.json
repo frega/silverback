@@ -26,6 +26,9 @@
         "drupal/admin_toolbar": "^1",
         "drupal/moderation_state_permissions": "dev-1.x"
     },
+    "require-dev": {
+        "webflo\/drupal-core-require-dev": "8.7.x-dev"
+    },
     "bin": [ "bin/silverback" ],
     "autoload": {
         "psr-4": {
