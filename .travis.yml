@@ -27,7 +27,7 @@ install:
 - cd $DRUPAL_BUILD_DIR
 - composer require webflo/drupal-core-require-dev:8.7.x-dev drupal/core:8.7.x-dev
 - composer require --dev webflo/drupal-core-require-dev:8.7.x-dev
-- php -r "\$json = json_decode(file_get_contents('composer.json'), TRUE); \$json['repositories'][] = ['type' => 'path', 'url' => '$TRAVIS_BUILD_DIR' ]; $json['extra']['enable-patching'] = TRUE; echo json_encode(\$json, JSON_PRETTY_PRINT);"
+- php -r "\$json = json_decode(file_get_contents('composer.json'), TRUE); \$json['repositories'][] = ['type' => 'path', 'url' => '$TRAVIS_BUILD_DIR' ]; \$json['extra']['enable-patching'] = TRUE; echo json_encode(\$json, JSON_PRETTY_PRINT);"
 - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
 - echo $BRANCH
 - composer require "amazeelabs/silverback:$BRANCH-dev"
