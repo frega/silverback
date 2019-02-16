@@ -1,4 +1,8 @@
-# Summary
+# Table of contents
+
+* [Introduction](../README.md)
 
 ## Deliveries
- * [Delivery](features/delivery/delivery.md)
+
+* [Delivery](deliveries/delivery.md)
+
