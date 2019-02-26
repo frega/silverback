@@ -9,6 +9,12 @@
             "role": "Master of desaster"
         }
     ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
     "require": {
         "vlucas/phpdotenv": "^2.4",
         "cweagans/composer-patches": "^1.6.5",
