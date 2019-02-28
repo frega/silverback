@@ -39,6 +39,9 @@
     "patches": {
         "drupal/core": {
             "#2955457 - ConfigFactory static cache gets polluted with data from config overrides": "https://www.drupal.org/files/issues/2019-01-11/2955457-36.patch"
+        },
+        "drupal/core": {
+            "#2718657 - Drupal\\language\\LanguageNegotiator::updateConfiguration() is passed a NULL": "https://www.drupal.org/files/issues/language-2718657-3.patch"
         }
     },
     "enable-patching": true
