@@ -15,13 +15,13 @@
  * - production.services.yml
  *   For services only for the production environment.
  * - development.settings.php
- *   For settings only for the development environment (devevlopment sites, docker).
+ *   For settings only for the development environment (development sites, docker).
  * - development.services.yml
- *   For services only for the development environment (devevlopment sites, docker).
+ *   For services only for the development environment (development sites, docker).
  * - settings.local.php
- *   For settings only for the local environment, this file will not be commited in GIT!
+ *   For settings only for the local environment, this file will not be committed in GIT!
  * - services.local.yml
- *   For services only for the local environment, this file will not be commited in GIT!
+ *   For services only for the local environment, this file will not be committed in GIT!
  */
 
 // Lagoon Database connection.
@@ -117,7 +117,7 @@ if (getenv('LAGOON')) {
 // If your site runs on multiple domains, you need to add these domains here.
 if (getenv('LAGOON_ROUTES')) {
   $settings['trusted_host_patterns'] = array(
-  // Escape dots, remove schema, use commas as regex separator.
+    // Escape dots, remove schema, use commas as regex separator.
     '^' . str_replace(['.', 'https://', 'http://', ','], ['\.', '', '', '|'], getenv('LAGOON_ROUTES')) . '$',
   );
 }
