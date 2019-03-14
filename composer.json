@@ -12,14 +12,14 @@
     "require": {
         "vlucas/phpdotenv": "^2.4",
         "cweagans/composer-patches": "^1.6.5",
-        "drupal/better_normalizers": "1.x-dev",
         "drupal/console": "^1.0.2",
         "drupal/core": "8.6.*",
-        "drupal/default_content": "1.x-dev",
         "drupal/entity_usage": "^2.0@alpha",
         "drupal/redirect": "^1.2",
-        "drupal/typed_data": "1.x-dev",
         "drush/drush": "^9.0.0",
+        "drupal/graphql": "^3.0@RC",
+        "drupal/graphql_twig": "^1.0@beta",
+        "drupal/graphql_views": "^1.0@beta",
         "drupal/moderation_state_columns": "dev-1.x",
         "drupal/moderation_state_buttons_widget": "dev-1.x",
         "drupal/webpack_react": "dev-1.x",
@@ -28,7 +28,9 @@
         "drupal/moderation_state_permissions": "dev-1.x",
         "drupal/tmgmt": "^1.6",
         "drupal/linkit": "^5",
-        "drupal/ckeditor5_sections": "1.0-alpha8"
+        "drupal/ckeditor5_sections": "^1.0-alpha",
+        "drupal/components": "1.1-alpha2",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "bin": [ "bin/silverback" ],
     "autoload": {
@@ -36,10 +38,11 @@
             "AmazeeLabs\\Silverback\\": "src/AmazeeLabs/Silverback"
         }
     },
-    "patches": {
-        "drupal/core": {
-            "#2955457 - ConfigFactory static cache gets polluted with data from config overrides": "https://www.drupal.org/files/issues/2019-01-11/2955457-36.patch"
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "#2718657 - Drupal\\language\\LanguageNegotiator::updateConfiguration() is passed a NULL": "https://www.drupal.org/files/issues/2019-02-28/language-2718657-17.patch"
+            }
         }
-    },
-    "enable-patching": true
+    }
 }
