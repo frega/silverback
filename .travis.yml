@@ -13,6 +13,7 @@ env:
 
 cache:
   directories:
+  - node_modules
   - ~/.npm
   - ~/.cache
   - ~/.composer/cache
@@ -23,6 +24,7 @@ before_install:
 - composer self-update
 
 install:
+- cd $TRAVIS_BUILD_DIR/docs && npm install -g vuepress
 - composer create-project drupal-composer/drupal-project:8.x-dev $DRUPAL_BUILD_DIR --no-interaction
 - cd $DRUPAL_BUILD_DIR
 - composer remove drupal/core
@@ -35,11 +37,23 @@ install:
 - if [[ -n "$SB_JIRA_PROJECTS" ]]; then silverback download-tests; fi
 
 script:
-- silverback setup
-- drush serve > log.txt 2>&1 &
-- until netstat -an 2>/dev/null | grep '8888.*LISTEN'; sleep 1; curl -I http://127.0.0.1:8888 ; do true; done
-- composer run-script run-tests --timeout 0
+#- silverback setup
+#- drush serve > log.txt 2>&1 &
+#- until netstat -an 2>/dev/null | grep '8888.*LISTEN'; sleep 1; curl -I http://127.0.0.1:8888 ; do true; done
+#- composer run-script run-tests --timeout 0
+- cd $TRAVIS_BUILD_DIR/docs && npm run build
 - kill $(jobs -p) || true
 
 notifications:
   email: false
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: $TRAVIS_BUILD_DIR/docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  repo: AmazeeLabs/silverback
+  keep-history: true
+  target-branch: gh-pages
+  on:
+    branch: master

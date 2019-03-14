@@ -45,7 +45,7 @@ class Setup extends SilverbackCommand {
         '--config-dir', '../' . $configDir,
         '--account-name', getenv('SB_ADMIN_USER'),
         '--account-pass', getenv('SB_ADMIN_PASS'),
-      ], getcwd(), null, null, null);
+      ], getcwd(), NULL, NULL, NULL);
       $process->start();
       foreach ($process as $type => $line) {
         $output->writeln($line);
@@ -57,7 +57,7 @@ class Setup extends SilverbackCommand {
       if ($testContent = getenv('SB_TEST_CONTENT')) {
         $process = new Process([
           './vendor/bin/drush', 'en', '-y', $testContent,
-        ], getcwd(), null, null, null);
+        ], getcwd(), NULL, NULL, NULL);
         $process->start();
         foreach ($process as $type => $line) {
           $output->writeln($line);
