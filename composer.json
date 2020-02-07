@@ -39,7 +39,7 @@
         "drupal/webpack": "dev-1.x",
         "drupal/webpack_babel": "dev-1.x",
         "drupal/webpack_react": "dev-1.x",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^9.0.0 | ^10.0.0",
         "vlucas/phpdotenv": "^2.4",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
